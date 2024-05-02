@@ -1,11 +1,12 @@
 //renders Box components and New Box Form
 import React, { useState } from "react";
 import Box from "./Box";
+import NewColorBoxForm from "./NewColorBoxForm";
 import { v4 as uuid } from "uuid";
 
 const BoxList = () => {
   const INITIAL_STATE = [
-    { id: 1, backgroundColor: "blue", width: "50px", height: "50px" },
+    { id: uuid(), backgroundColor: "blue", width: "50px", height: "50px" },
   ];
 
   const [boxes, setBoxes] = useState(INITIAL_STATE);
@@ -16,7 +17,7 @@ const BoxList = () => {
   return (
     <div>
       <h1>Box List</h1>
-
+      <NewColorBoxForm addBox={addBox} />
       <div>
         {boxes.map(({ id, backgroundColor, width, height }) => (
           <Box
