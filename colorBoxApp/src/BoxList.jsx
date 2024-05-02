@@ -7,8 +7,8 @@ import { v4 as uuid } from "uuid";
 const BoxList = () => {
   const [boxes, setBoxes] = useState([]);
 
-  const addBox = (newBox) => {
-    setBoxes((boxes) => [...boxes, { ...newBox, id: uuid() }]);
+  const addBox = (newBoxFormData) => {
+    setBoxes((boxes) => [...boxes, { ...newBoxFormData, id: uuid() }]);
   };
 
   const removeBox = (id) => {
