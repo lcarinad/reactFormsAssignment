@@ -5,14 +5,14 @@ import NewColorBoxForm from "./NewColorBoxForm";
 import { v4 as uuid } from "uuid";
 
 const BoxList = () => {
-  const INITIAL_STATE = [
-    { id: uuid(), backgroundColor: "blue", width: "50px", height: "50px" },
-  ];
-
-  const [boxes, setBoxes] = useState(INITIAL_STATE);
+  const [boxes, setBoxes] = useState([]);
 
   const addBox = (newBox) => {
     setBoxes((boxes) => [...boxes, { ...newBox, id: uuid() }]);
+  };
+
+  const removeBox = (id) => {
+    setBoxes((boxes) => boxes.filter((box) => box.id != id));
   };
   return (
     <div>
@@ -21,6 +21,7 @@ const BoxList = () => {
       <div>
         {boxes.map(({ id, backgroundColor, width, height }) => (
           <Box
+            handleRemove={removeBox}
             id={id}
             backgroundColor={backgroundColor}
             width={width}

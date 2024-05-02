@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./NewColorBoxForm.css";
 
 const NewColorBoxForm = ({ addBox }) => {
   const INITIAL_STATE = { backgroundColor: "", width: "", height: "" };
@@ -19,8 +20,8 @@ const NewColorBoxForm = ({ addBox }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="backgroundColor">Background Color🌈</label>
+    <form className="AddBoxForm" onSubmit={handleSubmit}>
+      <label htmlFor="backgroundColor">Background Color🌈: </label>
       <input
         id="backgroundColor"
         type="text"
@@ -30,7 +31,7 @@ const NewColorBoxForm = ({ addBox }) => {
         onChange={handleChange}
       />
 
-      <label htmlFor="width">Width</label>
+      <label htmlFor="width">Width: </label>
       <input
         id="width"
         type="text"
@@ -40,7 +41,7 @@ const NewColorBoxForm = ({ addBox }) => {
         onChange={handleChange}
       />
 
-      <label htmlFor="height">Height</label>
+      <label htmlFor="height">Height: </label>
       <input
         id="height"
         type="text"
